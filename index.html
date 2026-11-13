@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#1f5c5e" />
+<meta name="description" content="新西蘭親子自駕小冊 2026.12.23–2027.01.10 · Kenneth family" />
+<title>新西蘭親子小冊 · NZ Family Trip</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --ink:#24312b; --soft:#5c6b62; --paper:#f7f3ea; --cream:#fffaf2;
+  --lake:#3d8a8c; --lake-deep:#1f5c5e; --sage:#6f8f6a; --sand:#e8d5b5;
+  --line:#d5c8b4; --warn:#b85c38; --ok:#3d6b4f; --booked:#2f6b4f;
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Source Sans 3", system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+  background: linear-gradient(180deg, #dfe9e4, #cfd9d2);
+  padding-bottom: calc(24px + var(--safe-bottom));
+}
+img { max-width: 100%; height: auto; display: block; }
+h1,h2,h3 { font-family: Fraunces, Georgia, serif; line-height: 1.15; margin: 0; }
+.hand { font-family: Caveat, cursive; }
+
+/* Sticky chrome */
+.topbar {
+  position: sticky; top: 0; z-index: 40;
+  padding: calc(10px + var(--safe-top)) 12px 10px;
+  background: rgba(31,92,94,.96);
+  color: #fff;
+  backdrop-filter: blur(10px);
+}
+.topbar-inner {
+  max-width: 920px; margin: 0 auto;
+  display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: space-between;
+}
+.brand { font-family: Fraunces, serif; font-weight: 700; font-size: 15px; }
+.tabs {
+  display: inline-flex; gap: 4px; padding: 4px;
+  background: rgba(255,255,255,.12); border-radius: 999px;
+}
+.tab {
+  border: 0; border-radius: 999px; padding: 8px 16px;
+  font: inherit; font-weight: 700; cursor: pointer;
+  color: #fff; background: transparent;
+}
+.tab[aria-selected="true"] { background: var(--sand); color: var(--ink); }
+.panel[hidden] { display: none !important; }
+
+.wrap { width: min(920px, calc(100% - 20px)); margin: 16px auto 0; display: grid; gap: 16px; }
+
+.card {
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 28px rgba(36,49,43,.10);
+}
+.hero {
+  min-height: 42vh;
+  background: #1f5c5e center/cover no-repeat;
+  color: #fff;
+  display: flex; flex-direction: column; justify-content: flex-end;
+}
+.hero-copy {
+  padding: 28px 20px 22px;
+  background: linear-gradient(180deg, transparent, rgba(15,30,28,.78));
+}
+.hero h1 { font-size: clamp(32px, 8vw, 52px); max-width: 12ch; }
+.hero p { margin: 10px 0 0; color: rgba(255,255,255,.92); }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.chip {
+  background: rgba(255,250,242,.92); color: var(--ink);
+  border-radius: 999px; padding: 6px 12px; font-size: 12px; font-weight: 700;
+}
+
+.inner { padding: 18px 16px 20px; }
+.kicker { font-family: Caveat, cursive; font-size: 24px; color: var(--lake); margin: 0 0 2px; }
+.lede { color: var(--soft); margin: 8px 0 14px; }
+
+.hub {
+  display: grid; gap: 12px;
+  padding: 16px;
+  border-top: 1px dashed var(--line);
+}
+.hub:first-of-type { border-top: 0; }
+.hub-head { display: flex; flex-wrap: wrap; gap: 8px; align-items: baseline; justify-content: space-between; }
+.hub h3 { font-size: 24px; }
+.badge {
+  font-size: 12px; font-weight: 700; border-radius: 999px; padding: 4px 10px;
+  background: #e4efe8; color: var(--ok);
+}
+.badge.booked { background: #d9f0e2; color: var(--booked); }
+.badge.warn { background: #f8e4da; color: var(--warn); }
+.badge.soft { background: #e7f2f2; color: var(--lake-deep); }
+
+.pin {
+  display: grid; grid-template-columns: 96px 1fr; gap: 10px; align-items: center;
+  background: #eef5f1; border: 1px solid var(--line); border-radius: 14px; padding: 8px;
+}
+.pin img { width: 96px; height: 96px; object-fit: cover; border-radius: 10px; }
+.pin strong { display: block; font-family: Caveat, cursive; font-size: 22px; color: var(--lake-deep); line-height: 1.1; }
+.pin span { font-size: 12px; color: var(--soft); }
+
+.art {
+  border-radius: 14px; overflow: hidden; background: #dfe8e4;
+  aspect-ratio: 4/3;
+}
+.art img { width: 100%; height: 100%; object-fit: cover; }
+
+.stay {
+  margin-top: 8px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  font-size: 14px;
+}
+.stay b { color: var(--lake-deep); }
+.stay .meta { color: var(--soft); font-size: 12px; margin-top: 2px; }
+
+ul.list { list-style: none; margin: 10px 0 0; padding: 0; }
+ul.list li {
+  position: relative; padding: 8px 0 8px 18px;
+  border-bottom: 1px dotted var(--line); font-size: 14.5px;
+}
+ul.list li::before { content: "✦"; position: absolute; left: 0; top: 8px; color: var(--lake); font-size: 11px; }
+ul.list li.drop { color: var(--warn); }
+ul.list li.drop::before { content: "✕"; }
+
+.daytable { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+.daytable th, .daytable td {
+  text-align: left; vertical-align: top;
+  padding: 10px 8px; border-bottom: 1px solid var(--line);
+}
+.daytable th { background: #eef5f1; font-family: Fraunces, serif; color: var(--lake-deep); }
+.daytable .sleep { font-weight: 700; color: var(--lake-deep); white-space: nowrap; }
+
+.note {
+  margin-top: 12px; padding: 12px; border-radius: 12px;
+  background: #fff6e8; border: 1px solid #efd7b0; font-size: 13.5px; color: #6a4a22;
+}
+
+.footer {
+  text-align: center; padding: 28px 16px;
+  color: var(--soft); font-size: 13px;
+}
+
+/* Landscape phones / tablets */
+@media (orientation: landscape) and (max-height: 520px) {
+  .hero { min-height: 70vh; }
+  .hero-copy { padding: 16px 20px; }
+  .topbar-inner { gap: 6px; }
+}
+@media (min-width: 720px) {
+  .hub.grid2 {
+    grid-template-columns: 1.05fr 0.95fr;
+    align-items: start;
+  }
+  .hub.grid2 .copy { order: 0; }
+  .hub.grid2 .visual { order: 1; }
+  .hub.grid2.flip .copy { order: 1; }
+  .hub.grid2.flip .visual { order: 0; }
+  .inner { padding: 24px 28px 28px; }
+  .pin { grid-template-columns: 110px 1fr; }
+  .pin img { width: 110px; height: 110px; }
+}
+@media (min-width: 900px) {
+  .wrap { gap: 20px; }
+}
+@media (max-width: 420px) {
+  body { font-size: 15px; }
+  .tab { padding: 8px 12px; font-size: 14px; }
+  .daytable { display: block; }
+  .daytable thead { display: none; }
+  .daytable tr {
+    display: grid; gap: 4px;
+    padding: 12px 0; border-bottom: 1px solid var(--line);
+  }
+  .daytable td { border: 0; padding: 0; }
+  .daytable td::before {
+    display: block; font-size: 11px; font-weight: 700; color: var(--soft); margin-bottom: 2px;
+  }
+  .daytable td:nth-child(1)::before { content: "日子"; }
+  .daytable td:nth-child(2)::before { content: "住宿"; }
+  .daytable td:nth-child(3)::before { content: "行程"; }
+  .daytable td:nth-child(4)::before { content: "備註"; }
+}
+</style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">NZ Family Trip · 23 Dec – 10 Jan</div>
+      <div class="tabs" role="tablist" aria-label="南北島切換">
+        <button class="tab" role="tab" id="tab-north" aria-controls="panel-north" aria-selected="true">北島</button>
+        <button class="tab" role="tab" id="tab-south" aria-controls="panel-south" aria-selected="false">南島</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="card hero" style="background-image:url('assets/nz-brochure-cover.jpg')" aria-label="封面">
+      <div class="hero-copy">
+        <p class="hand" style="font-size:26px;margin:0;color:var(--sand)">Family Self-Drive Brochure</p>
+        <h1>新西蘭親子小冊</h1>
+        <p>爸爸 · 媽媽 · 22 個月 BB（及同行家庭）<br/>2026.12.23 → 2027.01.10</p>
+        <div class="chips">
+          <span class="chip">北島已訂住宿</span>
+          <span class="chip">Taupo 日遊</span>
+          <span class="chip">手機直睇</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- NORTH -->
+    <section id="panel-north" class="panel" role="tabpanel" aria-labelledby="tab-north">
+      <article class="card">
+        <div class="inner">
+          <p class="kicker">North Island</p>
+          <h2>北島路線</h2>
+          <p class="lede">Hamilton（2N）→ Rotorua（4N，含 Taupo 日遊）→ Auckland。12/29 經 Karioitahi Beach 入城。哈比村已取消（無票）。</p>
+          <div class="art" style="aspect-ratio:16/9;margin-bottom:8px">
+            <img src="assets/nz-brochure-route.jpg" alt="新西蘭路線示意" />
+          </div>
+        </div>
+
+        <!-- Hamilton -->
+        <div class="hub grid2">
+          <div class="copy">
+            <div class="hub-head">
+              <h3>Hamilton</h3>
+              <span class="badge booked">已訂 · 2 晚</span>
+            </div>
+            <p class="lede" style="margin-top:6px">23/12–25/12 · 落機休息 + Waitomo 船洞螢火蟲</p>
+            <div class="pin">
+              <img src="assets/nz-map-hamilton.jpg" alt="Hamilton map pin" />
+              <div>
+                <strong>You are here · Hamilton</strong>
+                <span>北島 Waikato · 機場南下約 1.5 小時</span>
+              </div>
+            </div>
+            <div class="stay">
+              <b>住宿</b> Dove's Rest — Brand New 4 Bedrooms Getaway to Eden<br/>
+              <div class="meta">入住 23/12 15:00–23:00 · 退房 25/12 05:00–10:00 · 4 Dulverton Rise, Hamilton</div>
+            </div>
+            <ul class="list">
+              <li><b>Waitomo Glowworm Caves 船洞</b>（傳統小船睇螢火蟲）</li>
+              <li>Hamilton Gardens（平路推車）</li>
+              <li>Otorohanga Kiwi House（可選）</li>
+              <li>25/12 聖誕彌撒後轉往 Rotorua</li>
+            </ul>
+          </div>
+          <div class="visual">
+            <div class="art"><img src="assets/nz-brochure-waitomo.jpg" alt="Waitomo cave" /></div>
+          </div>
+        </div>
+
+        <!-- Rotorua -->
+        <div class="hub grid2 flip">
+          <div class="copy">
+            <div class="hub-head">
+              <h3>Rotorua</h3>
+              <span class="badge booked">已訂 · 4 晚</span>
+            </div>
+            <p class="lede" style="margin-top:6px">25/12–29/12 · 北島親子大本營；28/12 Taupo 日遊</p>
+            <div class="pin">
+              <img src="assets/nz-map-rotorua.jpg" alt="Rotorua map pin" />
+              <div>
+                <strong>You are here · Rotorua</strong>
+                <span>地熱湖區 · Deb 家庭 29/12 清晨先出發</span>
+              </div>
+            </div>
+            <div class="stay">
+              <b>住宿</b> Rotorua（已訂）<br/>
+              <div class="meta">入住 25/12 · 退房 29/12 早上 · 酒店名稱待你補上</div>
+            </div>
+            <ul class="list">
+              <li>Te Puia／毛利地熱文化</li>
+              <li>Agrodome 農場騷（餵羊駝）</li>
+              <li>Redwoods + Skyline 纜車（唔玩 Luge）</li>
+              <li>Polynesian Spa Family Pool</li>
+              <li><b>28/12 Taupo 日遊</b>（唔過夜）：Huka Falls／Prawn Park／Aratiatia</li>
+              <li class="drop">唔去 Hobbiton（29/12 無票，已刪）</li>
+            </ul>
+          </div>
+          <div class="visual">
+            <div class="art"><img src="assets/nz-brochure-rotorua.jpg" alt="Rotorua" /></div>
+          </div>
+        </div>
+
+        <!-- Dec 29 transit -->
+        <div class="hub">
+          <div class="hub-head">
+            <h3>12/29 轉場日</h3>
+            <span class="badge soft">Rotorua → Auckland</span>
+          </div>
+          <div class="pin">
+            <img src="assets/nz-map-karioitahi.jpg" alt="Karioitahi Beach map pin" />
+            <div>
+              <strong>途經 · Karioitahi Beach</strong>
+              <span>奧克蘭西南岸沙灘 · 入城前進食／放電</span>
+            </div>
+          </div>
+          <ul class="list">
+            <li><b>Deb 家庭</b>：清晨離開 Rotorua，較早入 Auckland</li>
+            <li><b>KK 家庭</b>：可經 Karioitahi Beach 再入城</li>
+            <li>當日目標：到 Nesuto 辦理入住（15:00）</li>
+          </ul>
+        </div>
+
+        <!-- Auckland -->
+        <div class="hub grid2">
+          <div class="copy">
+            <div class="hub-head">
+              <h3>Auckland</h3>
+              <span class="badge booked">已訂公寓</span>
+            </div>
+            <p class="lede" style="margin-top:6px">Nesuto St Martins · Deb 住到 1/1；KK 住到 2/1</p>
+            <div class="pin">
+              <img src="assets/nz-map-auckland.jpg" alt="Auckland map pin" />
+              <div>
+                <strong>You are here · Auckland</strong>
+                <span>CBD 附近服務式公寓 · 泳池／廚房／泊車</span>
+              </div>
+            </div>
+            <div class="stay">
+              <b>住宿</b> Nesuto St Martins Apartment Hotel（標準 2 房公寓）<br/>
+              <div class="meta">
+                Deb：29/12 15:00 → 1/1 退房<br/>
+                KK：29/12 15:00 → 2/1 10:00 退房（當日午前完成市區活動；NZ0547 14:10 飛 CHC）
+              </div>
+            </div>
+            <ul class="list">
+              <li>SEA LIFE Kelly Tarlton’s</li>
+              <li>Devonport 渡輪 + 碼頭遊樂場</li>
+              <li>Sky Tower／海港散步</li>
+              <li class="drop">Hobbiton 已刪（無票）</li>
+              <li><b>2/1</b> KK：NZ0547 AKL→CHC 14:10（5 成人 + 1 小童）</li>
+            </ul>
+            <p class="note">KK 2/1 退房 10:00；請午前收好行李、盡早前往機場。航班 14:10，預留入閘同托運時間。</p>
+          </div>
+          <div class="visual">
+            <div class="art"><img src="assets/nz-brochure-auckland.jpg" alt="Auckland harbour" /></div>
+          </div>
+        </div>
+
+        <div class="inner">
+          <p class="kicker">North calendar</p>
+          <h2>北島日曆</h2>
+          <table class="daytable">
+            <thead>
+              <tr><th>日子</th><th>住宿</th><th>行程</th><th>備註</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>23/12</td>
+                <td class="sleep">Hamilton<br/>Dove's Rest</td>
+                <td>落機 → 取車 → 15:00 後入住</td>
+                <td>早瞓緩衝時差</td>
+              </tr>
+              <tr>
+                <td>24/12</td>
+                <td class="sleep">Hamilton</td>
+                <td>Waitomo <b>船洞</b> + Gardens</td>
+                <td>洞內著外套</td>
+              </tr>
+              <tr>
+                <td>25/12</td>
+                <td class="sleep">Rotorua（已訂）</td>
+                <td>聖誕彌撒／上午活動 → 轉 Rotorua</td>
+                <td>10:00 前退房 Hamilton</td>
+              </tr>
+              <tr>
+                <td>26–27/12</td>
+                <td class="sleep">Rotorua</td>
+                <td>Te Puia／Agrodome／Redwoods／Spa</td>
+                <td>每日 ≤2 重點</td>
+              </tr>
+              <tr>
+                <td>28/12</td>
+                <td class="sleep">Rotorua</td>
+                <td><b>Taupo 日遊</b>（唔過夜）</td>
+                <td>當晚返 Rotorua</td>
+              </tr>
+              <tr>
+                <td>29/12</td>
+                <td class="sleep">Auckland<br/>Nesuto</td>
+                <td>Deb 清晨出發；KK 可經 <b>Karioitahi Beach</b> → 15:00 入住</td>
+                <td>無 Hobbiton</td>
+              </tr>
+              <tr>
+                <td>30–31/12</td>
+                <td class="sleep">Auckland</td>
+                <td>Kelly Tarlton's／Devonport／Sky Tower</td>
+                <td>室內夾雨</td>
+              </tr>
+              <tr>
+                <td>1/1</td>
+                <td class="sleep">Auckland<br/>（Deb 退房）</td>
+                <td>Deb 退房離境／KK 輕鬆半日</td>
+                <td>KK 續住</td>
+              </tr>
+              <tr>
+                <td>2/1</td>
+                <td class="sleep">飛南島</td>
+                <td>KK 10:00 退房 → NZ0547 14:10 AKL→CHC</td>
+                <td>午前完成</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+    </section>
+
+    <!-- SOUTH -->
+    <section id="panel-south" class="panel" role="tabpanel" aria-labelledby="tab-south" hidden>
+      <article class="card">
+        <div class="inner">
+          <p class="kicker">South Island</p>
+          <h2>南島路線</h2>
+          <p class="lede">2/1 抵 Christchurch → Tekapo／Twizel → Queenstown Frankton（4N）。Wanaka 順路日遊。住宿多數未最終鎖定，先以節奏為準。</p>
+        </div>
+
+        <div class="hub grid2">
+          <div class="copy">
+            <div class="hub-head">
+              <h3>Christchurch</h3>
+              <span class="badge">2 晚</span>
+            </div>
+            <p class="lede" style="margin-top:6px">2/1–4/1 · 落機半日 + 南極中心／花園</p>
+            <div class="pin">
+              <img src="assets/nz-map-christchurch.jpg" alt="Christchurch map pin" />
+              <div>
+                <strong>You are here · Christchurch</strong>
+                <span>南島東岸 · NZ0547 午後抵達</span>
+              </div>
+            </div>
+            <div class="stay">
+              <b>住宿</b> 待訂<br/>
+              <div class="meta">建議 2/1 晚起連住 2 晚 · 近 Riccarton／機場方便</div>
+            </div>
+            <ul class="list">
+              <li>2/1：攞車、裝 BB 座、超市</li>
+              <li>International Antarctic Centre</li>
+              <li>Botanic Gardens／Margaret Mahy Playground</li>
+            </ul>
+          </div>
+          <div class="visual">
+            <div class="art"><img src="assets/nz-brochure-tekapo.jpg" alt="South island lakes" /></div>
+          </div>
+        </div>
+
+        <div class="hub grid2 flip">
+          <div class="copy">
+            <div class="hub-head">
+              <h3>Tekapo / Twizel</h3>
+              <span class="badge">2 晚</span>
+            </div>
+            <p class="lede" style="margin-top:6px">4/1–6/1 · 牧羊人教堂 + Mt Cook 短線</p>
+            <div class="pin">
+              <img src="assets/nz-map-tekapo.jpg" alt="Tekapo map pin" />
+              <div>
+                <strong>You are here · Tekapo</strong>
+                <span>星空湖區 · Twizel 作後備</span>
+              </div>
+            </div>
+            <div class="stay">
+              <b>住宿</b> 待訂<br/>
+              <div class="meta">建議連住 2 晚 · 離開 CHC 前買齊糧</div>
+            </div>
+            <ul class="list">
+              <li>Church of the Good Shepherd</li>
+              <li>High Country Salmon + Pukaki</li>
+              <li>Mt Cook：Kea Point／Hooker 至第一吊橋</li>
+            </ul>
+          </div>
+          <div class="visual">
+            <div class="art"><img src="assets/nz-brochure-tekapo.jpg" alt="Tekapo" /></div>
+          </div>
+        </div>
+
+        <div class="hub grid2">
+          <div class="copy">
+            <div class="hub-head">
+              <h3>Queenstown</h3>
+              <span class="badge">4 晚 · Frankton</span>
+            </div>
+            <p class="lede" style="margin-top:6px">6/1–10/1 · 6/1 南下順路 Wanaka；10/1 07:00 ZQN 離境</p>
+            <div class="pin">
+              <img src="assets/nz-map-queenstown.jpg" alt="Queenstown map pin" />
+              <div>
+                <strong>You are here · Queenstown</strong>
+                <span>Frankton 平地 · 近機場／超市</span>
+              </div>
+            </div>
+            <div class="stay">
+              <b>住宿</b> 待訂（建議 Frankton）<br/>
+              <div class="meta">6/1 入住 → 10/1 清晨退房趕 07:00 機</div>
+            </div>
+            <ul class="list">
+              <li>6/1 途經 Wanaka（孤樹／薰衣草／羊駝）— 唔過夜</li>
+              <li>TSS Earnslaw + Walter Peak BBQ</li>
+              <li>Arrowtown · Skyline Gondola</li>
+            </ul>
+          </div>
+          <div class="visual">
+            <div class="art"><img src="assets/nz-brochure-queenstown.jpg" alt="Queenstown" /></div>
+          </div>
+        </div>
+
+        <div class="inner">
+          <p class="kicker">South calendar</p>
+          <h2>南島日曆</h2>
+          <table class="daytable">
+            <thead>
+              <tr><th>日子</th><th>住宿</th><th>行程</th><th>備註</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>2/1</td><td class="sleep">Christchurch</td><td>14:10 後抵 CHC · 攞車 · 超市</td><td>早瞓</td></tr>
+              <tr><td>3/1</td><td class="sleep">Christchurch</td><td>南極中心／花園／遊樂場</td><td>買上山糧</td></tr>
+              <tr><td>4/1</td><td class="sleep">Tekapo/Twizel</td><td>Fairlie + 牧羊人教堂</td><td>露台觀星</td></tr>
+              <tr><td>5/1</td><td class="sleep">Tekapo/Twizel</td><td>Mt Cook 短線 + Salmon</td><td>返同宿午睡</td></tr>
+              <tr><td>6/1</td><td class="sleep">Queenstown</td><td>Wanaka 中途 → Frankton 入住</td><td>唔住 Wanaka</td></tr>
+              <tr><td>7/1</td><td class="sleep">Queenstown</td><td>Earnslaw + Walter Peak</td><td>親子王牌</td></tr>
+              <tr><td>8/1</td><td class="sleep">Queenstown</td><td>Arrowtown + Gondola</td><td>彈性午睡</td></tr>
+              <tr><td>9/1</td><td class="sleep">Queenstown</td><td>緩衝／手信</td><td>早睡</td></tr>
+              <tr><td>10/1</td><td class="sleep">離境</td><td>07:00 ZQN</td><td>Frankton 近機場</td></tr>
+            </tbody>
+          </table>
+          <p class="note">南島酒店多數仍待訂。北島 Hamilton／Rotorua／Auckland（Nesuto）已鎖定如上。</p>
+        </div>
+      </article>
+    </section>
+
+    <p class="footer">kenneth-codes-alot.github.io · 直向／橫向手機皆可睇 · 更新 Nov 2026</p>
+  </main>
+
+<script>
+(function () {
+  const tabs = [
+    { btn: document.getElementById('tab-north'), panel: document.getElementById('panel-north') },
+    { btn: document.getElementById('tab-south'), panel: document.getElementById('panel-south') }
+  ];
+  function select(target) {
+    tabs.forEach(({ btn, panel }) => {
+      const on = btn === target;
+      btn.setAttribute('aria-selected', on ? 'true' : 'false');
+      panel.hidden = !on;
+    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  tabs.forEach(({ btn }) => btn.addEventListener('click', () => select(btn)));
+  // Deep link ?tab=south
+  const q = new URLSearchParams(location.search).get('tab');
+  if (q === 'south') select(document.getElementById('tab-south'));
+})();
+</script>
+</body>
+</html>
